@@ -1,0 +1,185 @@
+* {
+  /* összes html elemre */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Szélességbe a padding és a border is. (A MARGÓ NEM) */
+}
+
+body {
+  background-image: url("kepek/hatter.png");
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  color: lightblue;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas:
+    "h h h"
+    "n n n"
+    "b a j"
+    "f f f";
+  gap: 10px;
+}
+
+ul {
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+nav li {
+  text-align: center;
+  padding: 5px;
+  background-color: rgba(0, 255, 255, 0.418);
+}
+
+nav li,a:hover {
+  background-color: rgba(64, 224, 208, 0.384);
+  color: aqua;
+}
+
+/* Mindegyik elemnek nevet adtunk */
+header {
+  grid-area: h;
+}
+nav {
+  grid-area: n;
+}
+footer {
+  grid-area: f;
+}
+article {
+  grid-area: a;
+}
+aside#bal {
+  grid-area: b;
+}
+aside#jobb {
+  grid-area: j;
+}
+.elso {
+  grid-area: e;
+}
+.masodik {
+  grid-area: m;
+}
+.harmadik {
+  grid-area: h;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+div {
+  border: 1px solid lightskyblue;
+  padding: 3px;
+}
+
+/* .keposszefog {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  align-items: ;
+} */
+
+header,
+nav,
+article,
+aside,
+footer {
+  border: 1px solid lightskyblue;;
+  padding: 10px;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "e m h"
+  ;
+  gap: 5px;
+  border: 1px solid lightskyblue;
+}
+
+/* tablet nézet */
+@media screen and (max-width: 700px) {
+  body {
+    width: 100%;
+    font-size: 3vw;
+  }
+
+  main {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      "h h"
+      "n n"
+      "a b"
+      "j j"
+      "f f";
+  }
+  ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  article {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+      "e m"
+      "h h"
+    ;
+    gap: 5px;
+  }
+}
+
+/* mobilon akarom nézni */
+@media screen and (max-width: 450px) {
+  body {
+    width: 100%;
+    font-size: 5vw;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "h"
+      "n"
+      "a"
+      "j"
+      "b"
+      "f";
+  }
+  
+  ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  li {
+    text-align: center;
+  }
+
+  article {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "e"
+      "m"
+      "h"
+    ;
+    gap: 5px;
+  }
+}
